@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   # permite a criação de um novo usuário
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
     # redireciona para a página de usuários (index)
     redirect_to users_path
   end
