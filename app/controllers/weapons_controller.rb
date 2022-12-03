@@ -1,3 +1,7 @@
+# rodei:
+# rails g controller weapons index create --no-helper --no-assets --no-controller-specs --no-view-specs --skip-routes
+# teria facilitado eu usar além de index e create, show, update e destroy
+
 class WeaponsController < ApplicationController
   # set_weapon é um before_action: antes de executar quaisquer desses métodos, ele executa o set_weapon
   before_action :set_weapon, only: [:show, :update, :destroy]
