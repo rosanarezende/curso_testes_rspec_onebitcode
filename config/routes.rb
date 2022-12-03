@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :weapons, only: [:index, :create, :destroy, :show]
 
+  resources :enemies, only: [:update, :destroy]
+
   # criar rota para a página inicial
   root 'weapons#index'
 end
