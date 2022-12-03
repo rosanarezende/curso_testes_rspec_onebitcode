@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # criar rotas pros nossos métodos
   resources :users, only: [:index, :create]
+
+  resources :weapons, only: [:index, :create, :destroy, :show]
 end

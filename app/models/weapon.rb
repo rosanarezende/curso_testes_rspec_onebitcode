@@ -8,13 +8,7 @@
 class Weapon < ApplicationRecord
   # ==== validações ====
   # level: começa em 1 e não tem restrição de máximo
-  validates :level, numericality: { greater_than: 0 }
-
-  # power_base: começa em 3000
-  # validates :power_base, numericality: { greater_than_or_equal_to: 3000 }
-
-  # power_step: + 100 por level
-  # validates :power_step, numericality: { greater_than: 0 }
+  validates :level, numericality: { greater_than: 0, less_than_or_equal_to: 99 }
 
   # ==== métodos ====
   # método que demonstra o poder atual da arma
