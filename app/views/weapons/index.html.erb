@@ -1,8 +1,104 @@
 <h1>Weapons#index</h1>
-<p>Find me in app/views/weapons/index.html.erb</p>
+<hr/>
 
-<% @weapons.each do |weapon| %>
-    <p><%= weapon.name %></p>
-    <p><%= weapon.title %></p>
-    <p><%= weapon.current_power %></p>
+<h2>Cadastrar Arma</h2>
+<%= form_for Weapon.new do |f| %>
+    <div id="name-description">
+        <p>
+            <%= f.label :name %><br/>
+            <%= f.select :name, options_for_select([ 'Escolha:', 'faca', 'machado', 'espada']) %>
+        </p>
+        <p>
+            <%= f.label :description %><br/>
+            <%= f.text_area :description %>
+        </p>
+    </div>
+
+    <div id="labels">
+        <p>
+            <%= f.label :level %><br/>
+            <%= f.select :level, options_for_select((1..99).to_a) %>
+        </p>
+        <p>
+            <%= f.label :power_base %><br/>
+            <%= f.select :power_base, options_for_select([3000, 6000, 9000]) %>
+        </p>
+        <p>
+            <%= f.label :power_step %><br/>
+            <%= f.select :power_step, options_for_select([100]) %>
+        </p>
+    </div><br/>
+
+    <%= f.submit 'Criar Arma' %>
 <% end %>
+
+<h2>Armas Cadastradas</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Current-Power</th>
+      <th>Power-Step</th>
+      <th>Title</th>
+      <th>Show</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @weapons.each_with_index do |weapon| %>
+      <tr>
+        <td><%= weapon.name %></td>
+        <td><%= weapon.current_power %></td>
+        <td><%= weapon.power_step %></td>
+        <td><%= weapon.title %></td>
+        <td><%= link_to "Detalhes".html_safe, weapon %></td>
+        <td><%= link_to 'Deletar', weapon_path(weapon), method: :delete %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<style>
+    body {
+        width: 800px;
+        margin: 0 auto;
+    }
+    h1 {
+        margin-top: 30px;
+    }
+    form {
+        background-color: gray;
+        width: 600px;
+        margin: 10px auto;
+        padding: 0 20px 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #name-description, #labels {
+        display: flex;
+        gap: 30px;
+    }
+    select, input, textarea {
+        width: 150px;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: white;
+    }
+    textarea {
+        width: 250px;
+        height: 70px;
+    }
+    table {
+        border-collapse: collapse;
+        padding: 10px;
+        width: 700px;
+        margin: 10px auto;
+    }
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 5px 10px;
+    }
+
+</style>

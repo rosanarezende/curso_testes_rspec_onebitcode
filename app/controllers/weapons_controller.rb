@@ -23,6 +23,10 @@ class WeaponsController < ApplicationController
     @weapon
   end
 
+  def update
+    @weapon.update!(weapon_params)
+  end
+
   private
 
   def set_weapon
