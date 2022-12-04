@@ -266,3 +266,14 @@ describe "DELETE /enemies" do
   end
 end
 ```
+<br>
+<hr>
+
+## DESAFIO FINAL
+
+Criar no controller os seguintes métodos
+- index: devolve todas as informações do inimigo via json
+- show: devolve todas as informações de um inimiigo específico via json (espciificado pelo id)
+- create: cria um novo inimigo e devolve as informações dele via json
+
+E criar os respectivos testes de request

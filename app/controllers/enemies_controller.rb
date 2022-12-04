@@ -1,6 +1,25 @@
 class EnemiesController < ApplicationController
-  # se tivéssemos outros métodos, poderíamos dizer quais métodos usariam o set_enemy ==> only: [:update, :destroy]
-  before_action :set_enemy
+  before_action :set_enemy, only: [:show, :update, :destroy]
+
+  # devolve todas as informações do inimigo via json
+  def index
+    @enemies = Enemy.all
+  end
+
+  # devolve todas as informações de um inimiigo específico via json (espciificado pelo id)
+  def show
+    @enemy
+  end
+
+  # cria um novo inimigo e devolve as informações dele via json
+  def create
+    @enemy = Enemy.new(enemy_params)  
+    if @enemy.save
+      render json: @enemy, status: :created, location: @enemy
+    else
+      render json: @enemy.errors, status: :unprocessable_entity
+    end
+  end
 
   def update
     if @enemy.update(enemy_params)

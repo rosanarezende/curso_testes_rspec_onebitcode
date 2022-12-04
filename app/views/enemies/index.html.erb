@@ -1,0 +1,11 @@
+<h1>Enemies#index</h1>
+
+<% @enemies.each do |enemy| %>
+  <h1><%= enemy.name %></h1>
+  <p><%= enemy.power_base %></p>
+  <p><%= enemy.power_step %></p>
+  <p><%= enemy.level %></p>
+  <p><%= enemy.kind %></p>
+  <p><%= enemy.current_power %></p>
+  <%= link_to "Detalhes".html_safe, enemy %>
+<% end %>
