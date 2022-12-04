@@ -4,7 +4,9 @@ class EnemiesController < ApplicationController
 
   def update
     if @enemy.update(enemy_params)
-      render json: @enemy, status :ok # 200
+      render json: @enemy 
+      # tinha "", status :ok", mas deu erro nos testes
+      # mas como o status :ok é o padrão, então não precisa colocar
     else
       render json: { errors: @enemy.errors }, status: :unprocessable_entity # 422
     end
