@@ -1,6 +1,6 @@
 # Mini curso de testes Ruby com Rspec
 
-Este repositório tem o conteúdo produzido durante o ()[Mini curso de testes Ruby com Rspec] da (https://onebitcode.com/course/minicurso-de-testes/)[One Bit Code]
+Este repositório tem o conteúdo produzido durante o [Mini curso de testes Ruby com Rspec](https://www.youtube.com/playlist?list=PLdDT8if5attGc3fgFsFe5cvV9MwlVFNLW) da One Bit Code
 
 # ENEMIES
 
